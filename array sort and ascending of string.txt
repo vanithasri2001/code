@@ -1,0 +1,56 @@
+C# program to demonstrate the
+Array.Sort(Array) method
+
+using System;
+ 
+class demo {
+ 
+    
+    public static void Main()
+    {
+        
+        string[] arr = {"A", "E", "D",
+                  "C", "F", "B", "G"};
+ 
+        
+        Console.WriteLine("The original array:");
+        Display(arr);
+        Array.Sort(arr);
+ 
+        Console.WriteLine("\n\nAfter sorting :");
+        Display(arr);
+    }
+ 
+    
+    public static void Display(string[] arr)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            Console.Write(arr[i] + " ");
+        }
+    }
+}
+--------------------------------------------------
+Ascending order of a string:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace C_sharp_basic_programs
+{
+    class AscendingOrder_String
+    {
+        public static void Main()
+        {
+            Console.WriteLine("Enter the string");
+            string str = Console.ReadLine();
+            char[] ch = str.ToCharArray();
+            Array.Sort(ch);
+            Console.WriteLine("Ascending order of the given string");
+            foreach (char c in ch)
+                Console.WriteLine(c);
+        }
+    }
+}
