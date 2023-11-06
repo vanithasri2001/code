@@ -1,0 +1,175 @@
+INHERITANCE:
+
+using System;
+
+public class Product
+{
+    public int ProductId { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+
+    public virtual decimal CalculateDiscount()
+    {
+        return Price * 0.1m; // Default discount: 10%
+    }
+
+    public virtual void DisplayProductInfo()
+    {
+        Console.WriteLine($"Product: {Name}, Price: {Price:C}");
+    }
+}
+
+public class ElectronicProduct : Product
+{
+    public string Manufacturer { get; set; }
+
+    public override void DisplayProductInfo()
+    {
+        base.DisplayProductInfo();
+        Console.WriteLine($"Manufacturer: {Manufacturer}");
+    }
+}
+
+public class ClothingProduct : Product
+{
+    public string Size { get; set; }
+
+    public override void DisplayProductInfo()
+    {
+        base.DisplayProductInfo();
+        Console.WriteLine($"Size: {Size}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        ElectronicProduct electronicProduct = new ElectronicProduct
+        {
+            ProductId = 1,
+            Name = "Smartphone",
+            Price = 599.99m,
+            Manufacturer = "XYZ Electronics"
+        };
+
+        ClothingProduct clothingProduct = new ClothingProduct
+        {
+            ProductId = 2,
+            Name = "T-Shirt",
+            Price = 19.99m,
+            Size = "Medium"
+        };
+
+        electronicProduct.DisplayProductInfo();
+        clothingProduct.DisplayProductInfo();
+    }
+}
+\
+
+abstaction
+using System;
+using System.Collections.Generic;
+
+public abstract class ShoppingCart
+{
+    public abstract void AddItem(Product product);
+    public abstract void RemoveItem(Product product);
+    public abstract void DisplayCart();
+}
+
+public class Product
+{
+    public int ProductId { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+
+public class OnlineShoppingCart : ShoppingCart
+{
+    private List<Product> cartItems = new List<Product>();
+
+    public override void AddItem(Product product)
+    {
+        cartItems.Add(product);
+        Console.WriteLine($"Added {product.Name} to the cart.");
+    }
+
+    public override void RemoveItem(Product product)
+    {
+        cartItems.Remove(product);
+        Console.WriteLine($"Removed {product.Name} from the cart.");
+    }
+
+    public override void DisplayCart()
+    {
+        Console.WriteLine("Items in the cart:");
+        foreach (var item in cartItems)
+        {
+            Console.WriteLine($"{item.Name} - {item.Price:C}");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        ShoppingCart cart = new OnlineShoppingCart();
+
+        Product product1 = new Product { ProductId = 1, Name = "Smartphone", Price = 599.99m };
+        Product product2 = new Product { ProductId = 2, Name = "Headphones", Price = 89.99m };
+
+        cart.AddItem(product1);
+        cart.AddItem(product2);
+
+        cart.DisplayCart();
+    }
+}
+
+constructor:
+using System;
+
+namespace ConstructorExample
+{
+    class Person
+    {
+        public string FirstName { get; }
+        public string LastName { get; }
+        public int Age { get; }
+
+        // Constructor with parameters to initialize the object's properties
+        public Person(string firstName, string lastName, int age)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Age = age;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter first name: ");
+            string firstName = Console.ReadLine();
+
+            Console.Write("Enter last name: ");
+            string lastName = Console.ReadLine();
+
+            Console.Write("Enter age: ");
+            int age = int.Parse(Console.ReadLine());
+
+            // Creating an instance of the Person class using the constructor
+            Person person = new Person(firstName, lastName, age);
+
+            // Accessing and displaying the properties of the person object
+            Console.WriteLine("\nPerson Information:");
+            Console.WriteLine("First Name: " + person.FirstName);
+            Console.WriteLine("Last Name: " + person.LastName);
+            Console.WriteLine("Age: " + person.Age);
+
+            Console.ReadLine();
+        }
+    }
+}
