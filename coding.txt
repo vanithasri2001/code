@@ -1,0 +1,86 @@
+using System;
+class Program {
+static void Main(string[] args) {
+Console.WriteLine("Enter the first string:");
+string str1 = Console.ReadLine();
+Console.WriteLine("Enter the second string:"); 
+string str2 = Console.ReadLine();
+if (str1.Length != str2.Length) 
+{
+Console.WriteLine("The two strings are not reverse of each other");
+}
+else {
+bool isReverse = true;
+for (int i = 0; i < str1.Length; i++)
+ {
+if (str1[i] != str2[str2.Length - 1 - i])
+ {
+isReverse = false;
+break;
+ }
+ }
+ if (isReverse)
+ {
+ Console.WriteLine("The two strings are reverse of each other");
+ }
+ else 
+{
+ Console.WriteLine("The two strings are not reverse of each other");
+ }
+ }
+ }
+}
+
+
+
+FIBONACCI SERIES:
+using System;  
+  public class FibonacciExample  
+   {  
+     public static void Main(string[] args)  
+      {  
+         int n1=0,n2=1,n3,i,number;    
+         Console.Write("Enter the number of elements: ");    
+         number = int.Parse(Console.ReadLine());  
+         Console.Write(n1+" "+n2+" ");
+         for(i=2;i<number;++i)    
+         {    
+          n3=n1+n2;    
+          Console.Write(n3+" ");    
+          n1=n2;    
+          n2=n3;    
+         }    
+      }  
+   }  
+
+
+PRIME NUMBER OR NOT:
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        int n , a=0;
+        Console.WriteLine("enter a number");
+        n=Convert.ToInt32(Console.ReadLine());
+       
+        for(int i=1;i<=n;i++)
+        if(n % i==0)
+        
+       
+        a++;
+        if(a==2)
+        {
+     
+        Console.WriteLine("prime");
+        
+        }
+        else
+        {
+            Console.WriteLine("not");
+        }
+        
+        
+    }
+}
